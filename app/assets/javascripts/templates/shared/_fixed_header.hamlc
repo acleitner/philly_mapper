@@ -1,0 +1,5 @@
+.container
+  .nav-logo
+    test
+    -# %a#logo(href='/')
+    -#   %img(src="/assets/logo.svg")
