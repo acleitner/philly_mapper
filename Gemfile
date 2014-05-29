@@ -38,6 +38,8 @@ gem 'spring',        group: :development
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+gem 'activerecord-postgis-adapter'
+
 gem 'devise'
 
 gem 'execjs'
