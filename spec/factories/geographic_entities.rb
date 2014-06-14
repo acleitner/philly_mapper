@@ -1,8 +1,6 @@
 # Read about factories at https://github.com/thoughtbot/factory_girl
 
 FactoryGirl.define do
-  factory :location do
-    name "MyString"
-    latlon ""
+  factory :geographic_entity do
   end
 end

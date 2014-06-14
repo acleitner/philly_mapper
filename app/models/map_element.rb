@@ -1,5 +1,6 @@
 class MapElement < ActiveRecord::Base
 
+  belongs_to :geographic_entity
   belongs_to :map
-  belongs_to :element, polymorphic: true
+
 end
