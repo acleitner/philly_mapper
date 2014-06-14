@@ -11,16 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140614192328) do
+ActiveRecord::Schema.define(version: 20140614195241) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "geographic_entities", force: true do |t|
     t.string   "name"
-    t.spatial  "latlon",     limit: {:srid=>4326, :type=>"point", :geographic=>true}
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.spatial  "geospatial_data", limit: {:srid=>4326, :type=>"geometry", :geographic=>true}
   end
 
   create_table "map_elements", force: true do |t|
