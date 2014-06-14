@@ -11,19 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140529201246) do
+ActiveRecord::Schema.define(version: 20140614192328) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "counties", force: true do |t|
-    t.integer  "state_id"
-    t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "locations", force: true do |t|
+  create_table "geographic_entities", force: true do |t|
     t.string   "name"
     t.spatial  "latlon",     limit: {:srid=>4326, :type=>"point", :geographic=>true}
     t.datetime "created_at"
@@ -32,28 +25,12 @@ ActiveRecord::Schema.define(version: 20140529201246) do
 
   create_table "map_elements", force: true do |t|
     t.integer  "map_id"
-    t.integer  "element_id"
-    t.string   "element_type"
+    t.integer  "geographic_entity_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "maps", force: true do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "states", force: true do |t|
-    t.string   "name"
-    t.string   "abbreviations"
-    t.float    "latitude"
-    t.float    "longitude"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "zip_code_tabulation_areas", force: true do |t|
-    t.integer  "county_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
