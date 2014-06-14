@@ -36,9 +36,9 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 # gem 'debugger', group: [:development, :test]
 
 gem 'activerecord-postgis-adapter'
+gem 'dbf'
 gem 'rgeo'
 gem 'rgeo-shapefile'
-gem 'dbf'
 
 gem 'devise'
 
@@ -50,10 +50,12 @@ gem 'rails-assets-bootstrap'
 gem 'rails-assets-underscore'
 
 group :development, :test do
-  gem "konacha"
   gem 'factory_girl_rails'
   gem 'guard-rspec'
+  gem "konacha"
+  gem "pry"
   gem 'rspec-rails'
+  gem 'spring'
   gem 'spring-commands-rspec'
 end
 
@@ -63,5 +65,4 @@ end
 
 group :development do
   gem 'awesome_print'
-  gem 'spring'
 end

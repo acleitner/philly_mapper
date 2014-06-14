@@ -246,6 +246,7 @@ DEPENDENCIES
   jquery-rails
   konacha
   pg
+  pry
   rails (= 4.1.0)
   rails-assets-bootstrap
   rails-assets-d3
