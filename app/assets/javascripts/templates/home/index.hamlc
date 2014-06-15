@@ -1,3 +1,7 @@
 #header.nav-static-top
   != JST['shared/fixed_header']()
-#index
+#home-index
+  .main-nav
+    .view-maps
+      %a(href='/maps')
+        %button Maps

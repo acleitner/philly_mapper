@@ -1,0 +1,23 @@
+#header.nav-static-top
+  != JST['shared/fixed_header']()
+#maps-index
+  .main-section
+    .heading-row
+      %h2.heading Maps
+    .content
+      %table.map-list
+        %tr
+          %th Name
+          %th Element Count
+        - for map in @maps
+          %tr.map-info(id="map-#{map.id}")
+            %td.map-name= map.name
+            %td.element-count= map.element_count
+            %td.map-options-list
+              .map-option Edit
+              .map-option Destroy
+  .side-section.right
+    .maps-count
+      .info#map-count= @maps.count
+    .create-map-button
+      %a(href="/maps/new") Create New Map
