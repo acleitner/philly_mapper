@@ -39,13 +39,17 @@ gem 'activerecord-postgis-adapter'
 gem 'dbf'
 gem 'rgeo'
 gem 'rgeo-shapefile'
+gem 'rgeo-geojson'
+
+gem 'rubyzip'
 
 gem 'devise'
 
 gem 'bootstrap-sass'
 gem 'execjs'
 gem 'font-awesome-rails'
-gem 'haml_coffee_assets', git: "https://github.com/netzpirat/haml_coffee_assets"
+gem 'haml'
+# gem 'haml_coffee_assets', git: "https://github.com/netzpirat/haml_coffee_assets"
 # gem 'rails-assets-underscore'
 
 group :development, :test do
