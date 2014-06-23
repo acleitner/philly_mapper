@@ -1,0 +1,57 @@
+-# #header.nav-static-top
+-#   != JST['shared/fixed_header']()
+#maps-new
+  .main-section
+    .heading-row
+      %h2.heading Create a new map
+    .content
+      .new-map-form-container
+        %form.new-map-form(method="post" action="/maps")
+          %input{type: 'hidden', name: 'authenticity_token', value: @csrf }
+            Map Name:
+          %input(type="text" name="name")
+          .element-list
+            Map Elements
+            %a.btn.btn-info.create(data-toggle="modal" data-target="#add-map-element-modal")
+              %i.icon-plus.icon-white Add A Map Element
+          %input(type="submit" value="create")
+#add-map-element-modal.modal.fade(tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true")
+  .modal-dialog
+    .modal-content
+      .modal-header
+        %button(type="button" class="close" data-dismiss="modal" aria-hidden="true") X
+        %h4.modal-title Add An Element
+      .modal-body
+        %form#map-element-creation-form(method="post" action="/")
+          %input{type: 'hidden', name: 'authenticity_token', value: @csrf }
+          #map-element-name-field
+            %label(for="map-element-name") Name
+            %input#map-element-name(name="map_element[name]" type="text")
+          #map-element-geographic-entity-id-field
+            %label(for="map-element-geographic-entity-id") Name
+            %select#map-element-geographic-entity-id(name="map_element[geographic_entity_id]")
+              - @geographic_entities.each do |entity|
+                %option(value="#{entity.id}")= entity.name
+            %a#open-geographic-entity-modal.btn.btn-info.create(data-toggle="modal" data-target="#create-geographic-entity-modal")
+              %i.icon-plus.icon-white Create A New Geographic Entity
+      .modal-footer
+        %button.btn.btn-default(type="button" data-dismiss="modal") Cancel
+        #add-map-element-button.btn.btn-primary(type="button" data-dismiss="modal") Add
+#create-geographic-entity-modal.modal.fade(tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true")
+  .modal-dialog
+    .modal-content
+      .modal-header
+        %button(type="button" class="close" data-dismiss="modal" aria-hidden="true") X
+        %h4.modal-title Create a New Geographic Entity
+      .modal-body
+        %form#geographic-entity-creation-form(method="post" action="/maps/create-geographic-entity" enctype="multipart/form-data")
+          %input{type: 'hidden', name: 'authenticity_token', value: @csrf }
+          #geographic-entity-name-field
+            %label(for="geographic-entity-name") Name
+            %input#geographic-entity-name(name="geographic_entity[name]" type="text")
+          #geographic-entity-data-field
+            %label(for="geographic-entity-geospatial-data") Select a geojson or zipped shapefile to upload
+            %input#geographic-entity-geospatial-data(name="geographic_entity[geospatial_data]" type="file")
+      .modal-footer
+        %button.btn.btn-default(type="button" data-dismiss="modal") Cancel
+        #create-geographic-entity-button.btn.btn-primary(type="button" data-dismiss="modal") Create
