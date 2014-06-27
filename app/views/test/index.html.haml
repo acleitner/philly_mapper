@@ -1,0 +1,17 @@
+%button#userAction +
+#geodata{data: {parks: @parks.to_json, trails: @trails.to_json}}
+#upload
+  %h2 Share
+  %form#imgUp(action="/test-test" method="POST" enctype="multipart/form-data")
+    %input(type="hidden" name="authenticity_token" value=@csrf)
+    %label(for="photo") Filename:
+    %input#photo(type="file" name="photo" id="photo")
+    %input#upBtn(type="submit" name="submit" value="Submit")
+  %form#ruler(action="/test-test3" method="POST")
+    %input(type="hidden" name="authenticity_token" value=@csrf)
+    %input#startLat(type="hidden" name="startLat")
+    %input#startLon(type="hidden" name="startLon")
+    %input#endLat(type="hidden" name="endLat")
+    %input#endLon(type="hidden" name="endLon")
+
+#map
